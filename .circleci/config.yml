@@ -1,12 +1,12 @@
 version: 2
 jobs:
   dockerhubuploadrelease:
-     machine: true
+     machine: truee
      steps:
        - checkout
-       - run: docker build -f docker/Dockerfile -t lilitumerenwen/test:${CIRCLE_TAG} .
+       - run: docker build -f docker/Dockerfile -t lilitumerenwen/test:test2 .
        - run: docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD 
-       - run: docker push lilitumerenwen/test:${CIRCLE_TAG}
+       - run: docker push lilitumerenwen/test:test2
 
 workflows:
   version: 2
