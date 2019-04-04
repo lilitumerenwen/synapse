@@ -8,7 +8,7 @@ jobs:
        - run: docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD 
        - run: docker push lilitumerenwen/test:${CIRCLE_TAG}
 
-workflow:
+workflows:
   version: 2
   build:
     jobs:
