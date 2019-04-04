@@ -1,7 +1,7 @@
 version: 2
 jobs:
   dockerhubuploadrelease:
-     machine: truee
+     machine: true
      steps:
        - checkout
        - run: docker build -f docker/Dockerfile -t lilitumerenwen/test:test2 .
