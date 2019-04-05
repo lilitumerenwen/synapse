@@ -59,19 +59,19 @@ jobs:
 workflows:
   version: 2
   build:
-    jobs: 
-      - testrun:
-          filters:
-           branches:
-            only: master
-      - syTest:
-          requires:
-            - testrun
+    jobs:
+      - syTests:
           filters:
            branches:
             only: master 
       - approval:
-          type: approval
+          type: approval 
+      - testrun:
+          requires:
+           - approval
+          filters:
+           branches:
+            only: master
       - dockerhubuploadrelease:
           requires:
             - approval
