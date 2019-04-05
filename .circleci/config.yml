@@ -19,16 +19,12 @@ jobs:
        - run: cd synapse
        - run: sudo pip install pipenv
        - run: sudo apt-get install build-essential python3-dev libffi-dev \
-       - run:
-            command: |
+             # - run:
+             # command: |
              # python-pip python-setuptools sqlite3 \
              # libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
-             pipenv install
-             pipenv run python -m synapse.app.homeserver \
-             --server-name my.test.domain \
-             --config-path homeserver.yaml \
-             --generate-config \
-             --report-stats=yes
+       - run: pipenv install
+       - run: pipenv run python -m synapse.app.homeserver --server-name my.test.domain --config-path homeserver.yaml --generate-config --report-stats=yes
 
        - run:
            name: run tests
