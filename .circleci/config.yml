@@ -51,7 +51,7 @@ jobs:
       - run: pip install pynacl --user
       - checkout
       - run: cd synapse
-      - git checkout develop
+      - run: git checkout develop
       - python setup.py develop --user
       - python setup.py test
 
