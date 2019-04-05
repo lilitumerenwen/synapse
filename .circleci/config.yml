@@ -36,12 +36,12 @@ workflows:
     jobs: 
       - testrun:
           filters:
-          branches:
+           branches:
             only: master
       - approval:
           type: approval
       - dockerhubuploadrelease:
           requires: approval
           filters:
-          branches:
+           branches:
             only: master
