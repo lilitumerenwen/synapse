@@ -52,8 +52,8 @@ jobs:
       - checkout
       - run: cd synapse
       - run: git checkout develop
-      - python setup.py develop --user
-      - python setup.py test
+      - run: python setup.py develop --user
+      - run: python setup.py test
 
 
 workflows:
