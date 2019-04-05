@@ -25,9 +25,9 @@ jobs:
         #- run: pipenv shell
 #       - run: python -m synapse.app.homeserver --server-name my.test.domain --config-path homeserver.yaml --generate-config --report-stats=yes
 #
-        - run: virtualenv -p python3 env
-        - run: source env/bin/activate
-        - run: python -m pip install -e .[all]
+       - run: virtualenv -p python3 env
+       - run: source env/bin/activate
+       - run: python -m pip install -e .[all]
 
        - run:
            name: run tests
