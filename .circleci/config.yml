@@ -36,9 +36,7 @@ workflows:
   build:
     jobs: 
       - testrun:
-          requires:
-           - dockerhubuploadrelease
-          filters:
+          filters::
           branches:
             only: master
       - approval:
