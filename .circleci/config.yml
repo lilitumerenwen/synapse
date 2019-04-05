@@ -27,7 +27,7 @@ jobs:
 #
        - run: virtualenv -p python3 env
        - run: source env/bin/activate
-       - run: python -m pip install -e .[all]
+       - run: sudo python -m pip install -e .[all]
 
        - run:
            name: run tests
