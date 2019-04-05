@@ -37,7 +37,7 @@ jobs:
   syTests:
      machine: true
      steps:
-      - run: cat >> .profile << EOF
+      - run: cat >> ~/.profile << EOF
       - run: export PERLLIB=$HOME/lib/perl5
       - run: export PERL_MB_OPT=--install_base=$HOME
       - run: export PERL_MM_OPT=INSTALL_BASE=$HOME
