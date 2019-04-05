@@ -27,7 +27,7 @@ jobs:
        - run:
            name: run tests
            command: |
-             pipenv twisted.trial tests 
+             pipenv run python -m twisted.trial tests 
 
 workflows:
   version: 2
