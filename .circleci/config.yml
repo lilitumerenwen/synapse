@@ -25,7 +25,6 @@ jobs:
              # libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
        - run: pipenv install
        - run: pipenv run python -m synapse.app.homeserver --server-name my.test.domain --config-path homeserver.yaml --generate-config --report-stats=yes
-
        - run:
            name: run tests
            command: |
