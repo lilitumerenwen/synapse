@@ -33,6 +33,28 @@ jobs:
            name: run tests
            command: |
              python -m twisted.trial tests 
+  
+  syTests:
+     machine: true
+     steps:
+      - run: cat >> .profile << EOF
+      - run: export PERLLIB=$HOME/lib/perl5
+      - run: export PERL_MB_OPT=--install_base=$HOME
+      - run: export PERL_MM_OPT=INSTALL_BASE=$HOME
+      - run: EOF
+      - run: cpanm
+      - run: exit 
+      - checkout
+      - run: git clone https://github.com/matrix-org/sytest
+      - run: ./install-deps.pl
+      - run: cd ..
+      - run: pip install pynacl --user
+      - checkout
+      - cd synapse
+      - git checkout develop
+      - python setup.py develop --user
+      - python setup.py test
+
 
 workflows:
   version: 2
@@ -42,6 +64,12 @@ workflows:
           filters:
            branches:
             only: master
+      - syTest:
+          requires:
+            - testrun
+          filters:
+           branches:
+            only: master 
       - approval:
           type: approval
       - dockerhubuploadrelease:
