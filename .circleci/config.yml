@@ -39,6 +39,8 @@ workflows:
           requires:
            - dockerhubuploadrelease
           filters:
+          branches:
+            only: master
       - approval:
           type: approval
       - dockerhubuploadrelease:
