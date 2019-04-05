@@ -8,6 +8,35 @@ jobs:
        - run: docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD" 
        - run: docker push lilitumerenwen/test:test2
 
+  testrun:
+     docker:
+       - image: circleci/python:3.6.4
+     enviroment:
+       PIPENV_VENV_IN_PROJECT: true
+
+     steps:
+       - checkout
+       - run:
+           name: install dependencies
+           command: |
+             git clone git@github.com:eyetime-international-ltd/synapse_private.git
+             cd synapse
+             sudo pip install pipenv
+             sudo apt-get install build-essential python3-dev libffi-dev \
+             python-pip python-setuptools sqlite3 \
+             libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
+             pipenv install
+             pipenv run python -m synapse.app.homeserver \
+             --server-name my.test.domain \
+             --config-path homeserver.yaml \
+             --generate-config \
+             --report-stats=yes
+
+        - run:
+           name: run tests
+           command: |
+             python -m twisted.trial tests 
+
 workflows:
   version: 2
   build:
@@ -16,4 +45,7 @@ workflows:
           filters:
             branches:
              only: master
- 
+      - testrun:
+          filters:
+            branches:
+             only: master
