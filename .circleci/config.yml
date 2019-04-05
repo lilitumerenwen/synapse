@@ -21,8 +21,8 @@ jobs:
        - run: sudo apt-get install build-essential python3-dev libffi-dev \
        - run:
             command: |
-             python-pip python-setuptools sqlite3 \
-             libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
+            # python-pip python-setuptools sqlite3 \
+            # libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
              pipenv install
              pipenv run python -m synapse.app.homeserver \
              --server-name my.test.domain \
@@ -38,14 +38,15 @@ jobs:
 workflows:
   version: 2
   build:
-    jobs:
-      - dockerhubuploadrelease:
-          filters:
-            branches:
-             only: master
+    jobs: 
       - testrun:
           requires:
            - dockerhubuploadrelease
           filters:
-            branches:
-             only: master
+      - approval:
+          type: approval
+      - dockerhubuploadrelease:
+          requires: approval
+          filters:
+          branches:
+            only: master
