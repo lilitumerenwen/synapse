@@ -32,7 +32,7 @@ jobs:
              --generate-config \
              --report-stats=yes
 
-        - run:
+       - run:
            name: run tests
            command: |
              python -m twisted.trial tests 
