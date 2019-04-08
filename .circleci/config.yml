@@ -60,7 +60,7 @@ jobs:
            command: |
               git clone https://github.com/matrix-org/sytest
               cd sytest
-              ./install-deps.pl 
+              sudo ./install-deps.pl 
               cd ..
       - run: pip install pynacl --user
       - checkout
