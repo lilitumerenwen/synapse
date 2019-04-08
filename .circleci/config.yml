@@ -52,7 +52,7 @@ jobs:
       - run:
            name: cpan
            command: |
-             cpan &
+             cpan &&
       - checkout
       - run:
            name: clone sytest and run install
