@@ -42,7 +42,7 @@ jobs:
       - run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> ~/.profile
       - run: source ~/.profile
       #- run: yes | sudo perl -cpan
-      - run: sudo perl -MCPAN -e
+      - run: sudo perl -MCPAN
      # - run: o conf prequisites_policy folow
      # - run: o conf commit
       - run: exit 
