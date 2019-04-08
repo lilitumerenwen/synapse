@@ -52,10 +52,7 @@ jobs:
       - run:
            name: cpan
            command: |
-             cpan
-             timeout: 1200
-             yes 
-             exit 
+             cpan &
       - checkout
       - run:
            name: clone sytest and run install
