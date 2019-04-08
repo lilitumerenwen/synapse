@@ -59,6 +59,7 @@ jobs:
            name: clone sytest and run install
            command: |
               ls
+              git clone https://eyetime-international-ltd/synapse_private.git
               git clone https://github.com/matrix-org/sytest
               cd sytest
               sudo ./install-deps.pl 
