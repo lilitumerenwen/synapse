@@ -47,11 +47,13 @@ jobs:
      # - run: o conf commit
       - run: exit 
       - checkout
-      - run: git clone https://github.com/matrix-org/sytest
-      - run: cd sytest
-      - run: ls
-      - run: ./install-deps.pl
-      - run: cd ..
+      - run:
+           name: clone sytest and run install
+           command: |
+              git clone https://github.com/matrix-org/sytest
+              cd sytest
+              ./install-deps.pl
+              cd ..
       - run: pip install pynacl --user
       - checkout
       - run: cd synapse
