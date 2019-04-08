@@ -46,7 +46,7 @@ jobs:
       - run: sudo echo "export PERLLIB=$HOME/lib/perl5" >> .profile
       - run: sudo echo "export PERL_MB_OPT=--install_base=$HOME" >> .profile
       - run: sudo echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> .profile
-      - run: sudo source .profile
+      - run:  source .profile
       #- run: yes | sudo perl -cpan
       #- run: sudo perl -MCPAN
      # - run: o conf prequisites_policy folow
