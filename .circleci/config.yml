@@ -53,7 +53,7 @@ jobs:
            name: cpan
            command: |
              echo "yes" | cpan
-      - run: -lR /home/circleci/src
+      - run: ls -lR /home/circleci/src
       - checkout
       - run:
            name: clone sytest and run install
