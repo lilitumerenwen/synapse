@@ -37,15 +37,24 @@ jobs:
   syTests:
      machine: true
      steps:
-      - run: echo "export PERLLIB=$HOME/lib/perl5" >> ~/.profile
-      - run: echo "export PERL_MB_OPT=--install_base=$HOME" >> ~/.profile
-      - run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> ~/.profile
-      - run: source ~/.profile
+      #- run: echo "export PERLLIB=$HOME/lib/perl5" >> ~/.profile
+      #- run: echo "export PERL_MB_OPT=--install_base=$HOME" >> ~/.profile
+      #- run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> ~/.profile
+      #- run: source ~/.profile
+      - run: echo "export PERLLIB=$HOME/lib/perl5" >> .profile
+      - run: echo "export PERL_MB_OPT=--install_base=$HOME" >> .profile
+      - run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> .profile
+      - run: source .profile
       #- run: yes | sudo perl -cpan
-      - run: sudo perl -MCPAN
+      #- run: sudo perl -MCPAN
      # - run: o conf prequisites_policy folow
      # - run: o conf commit
-      - run: exit 
+      - run:
+           name: cpan
+           command: |
+             cpan
+             yes
+             exit 
       - checkout
       - run:
            name: clone sytest and run install
