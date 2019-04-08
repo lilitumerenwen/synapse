@@ -43,8 +43,8 @@ jobs:
       - run: source ~/.profile
       #- run: yes | sudo perl -cpan
       - run: sudo perl -MCPAN -e shell
-      - run: conf prequisites_policy folow
-      - run: conf commit
+      - run: o conf prequisites_policy folow
+      - run: o conf commit
       - run: exit 
       - checkout
       - run: git clone https://github.com/matrix-org/sytest
