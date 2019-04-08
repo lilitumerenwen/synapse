@@ -58,6 +58,7 @@ jobs:
       - run:
            name: clone sytest and run install
            command: |
+              ls
               git clone https://github.com/matrix-org/sytest
               cd sytest
               sudo ./install-deps.pl 
