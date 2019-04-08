@@ -49,7 +49,7 @@ jobs:
       - checkout
       - run: git clone https://github.com/matrix-org/sytest
       - run: cd sytest
-      - run: ./install-deps.pl
+      - run: sudo ./install-deps.pl
       - run: cd ..
       - run: pip install pynacl --user
       - checkout
