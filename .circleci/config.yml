@@ -53,7 +53,8 @@ jobs:
            name: cpan
            command: |
              cpan
-             yes
+             timeout: 1200
+             yes 
              exit 
       - checkout
       - run:
