@@ -41,9 +41,10 @@ jobs:
       - run: echo "export PERL_MB_OPT=--install_base=$HOME" >> ~/.profile
       - run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> ~/.profile
       - run: source ~/.profile
-      - run: ulimit -m unlimited
-      - run: ulimit -d unlimited
-      - run: yes | sudo perl -cpan
+      #- run: yes | sudo perl -cpan
+      - run: sudo perl -MCPAN -e shell
+      - run: conf prequisites_policy folow
+      - run: conf commit
       - run: exit 
       - checkout
       - run: git clone https://github.com/matrix-org/sytest
