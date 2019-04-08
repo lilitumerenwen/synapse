@@ -37,6 +37,8 @@ jobs:
   syTests:
      machine: true
      steps:
+      
+      - checkout
       #- run: echo "export PERLLIB=$HOME/lib/perl5" >> ~/.profile
       #- run: echo "export PERL_MB_OPT=--install_base=$HOME" >> ~/.profile
       #- run: echo "export PERL_MM_OPT=INSTALL_BASE=$HOME" >> ~/.profile
@@ -53,8 +55,6 @@ jobs:
            name: cpan
            command: |
              echo "yes" | cpan
-      - run: ls -lR /home/circleci/src
-      - checkout
       - run:
            name: clone sytest and run install
            command: |
