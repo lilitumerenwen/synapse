@@ -52,8 +52,8 @@ jobs:
            command: |
               git clone https://github.com/matrix-org/sytest
               cd sytest
-              ./install-deps.pl
-              yes -wait -timeout 15s
+              ./install-deps.pl &
+              #yes -wait -timeout 15s
               cd ..
       - run: pip install pynacl --user
       - checkout
